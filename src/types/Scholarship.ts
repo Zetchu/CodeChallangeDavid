@@ -8,6 +8,12 @@ export interface WhatYouWillLearnItem {
   data: string;
 }
 
+export interface Location {
+  name: string;
+  description: string;
+  acronym: string;
+}
+
 export interface FAQItem {
   type: string;
   question: string;
@@ -17,11 +23,6 @@ export interface FAQItem {
 export interface ScholarshipData {
   name: string;
   description: DescriptionBlock[];
-  location: {
-    name: string;
-    description: string;
-    acronym: string;
-  };
   about: DescriptionBlock[];
   tuition: number;
   total_value: number;
@@ -38,4 +39,9 @@ export interface ScholarshipData {
   faqs: {
     items: FAQItem[];
   };
+  application_end_date: string;
+  scholarship_start_date: string;
+  scholarship_end_date: string;
+  location: Location;
+  position: string;
 }
