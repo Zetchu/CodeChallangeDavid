@@ -1,3 +1,4 @@
+import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
 import { useScholarshipStore } from './state/scholarshipStore';
@@ -14,6 +15,7 @@ function App() {
     <>
       <Navbar />
       <HeroSection />
+      <AboutSection />
     </>
   );
 }

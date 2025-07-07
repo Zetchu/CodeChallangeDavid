@@ -21,6 +21,7 @@ export interface FAQItem {
 }
 
 export interface ScholarshipData {
+  about_description: string;
   name: string;
   description: DescriptionBlock[];
   about: DescriptionBlock[];
