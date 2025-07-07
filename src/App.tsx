@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import { useScholarshipStore } from './state/scholarshipStore';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { data, loading, error, fetchData } = useScholarshipStore();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!data) return <p>No data found.</p>;
+
+  const {
+    name,
+    description,
+    location,
+    total_value,
+    tuition,
+    stipend_per_year,
+  } = data;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+      <h1>{name}</h1>
+      <p>{description[0]?.data}</p>
+
+      <section>
+        <h3>Location:</h3>
+        <p>{location.name}</p>
+
+        <h3>Scholarship Value:</h3>
+        <p>€{total_value.toLocaleString()}</p>
+
+        <h3>Tuition:</h3>
+        <p>€{tuition.toLocaleString()}</p>
+
+        <h3>Stipend (per year):</h3>
+        <p>€{stipend_per_year.toLocaleString()}</p>
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
