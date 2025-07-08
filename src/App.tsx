@@ -1,5 +1,6 @@
 import AboutCards from './components/AboutCards';
 import AboutSection from './components/AboutSection';
+import FAQSection from './components/FaqSection';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
 import TestimonialCarousel from './components/TestimonialCarousel';
@@ -20,6 +21,7 @@ function App() {
       <AboutSection />
       <AboutCards />
       <TestimonialCarousel />
+      <FAQSection />
     </>
   );
 }
