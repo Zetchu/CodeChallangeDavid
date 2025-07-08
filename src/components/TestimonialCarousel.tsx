@@ -1,38 +1,12 @@
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import gridBg from '../assets/gridBackground.svg';
-import ireneImg from '../assets/image.png';
-import linkedInLogo from '../assets/linkedInLogo.svg';
 
-const dummyTestimonials = [
-  {
-    name: 'Irene Pereyra',
-    role: 'Interaction Design Fellow ’19',
-    quote:
-      'This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experience offered through the program.',
-    education: 'B.A. Visual Design',
-    image: ireneImg, // Replace with your local image or a placeholder
-  },
-  {
-    name: 'John Smith',
-    role: 'Data Science Fellow ’20',
-    quote:
-      'The mentorship and industry exposure helped me build real skills while earning a degree. It was a transformative experience.',
-    education: 'B.Sc. Computer Science',
-    image: ireneImg,
-  },
-  {
-    name: 'Sophia Lee',
-    role: 'Cybersecurity Fellow ’21',
-    quote:
-      'I found a strong community and hands-on projects that made learning exciting. This program set the foundation for my career.',
-    education: 'M.Sc. Information Security',
-    image: ireneImg,
-  },
-];
+import linkedInLogo from '../assets/linkedInLogo.svg';
+import { dummyTestimonials } from '../constants/dummyTestimonials';
 
 const TestimonialCarousel = () => {
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: 'free-snap',
     slides: {
@@ -50,12 +24,28 @@ const TestimonialCarousel = () => {
   });
 
   return (
-    <section className='relative bg-white px-6 py-20 lg:px-36 overflow-hidden'>
+    <section className='relative bg-white px-6 py-20 mt-30  overflow-hidden'>
       <img
         src={gridBg}
         alt='Grid Background'
-        className='absolute top-0 left-1/2 transform -translate-x-1/2 w-[58%] max-w-none  z-0 pointer-events-none'
+        className='absolute top-0 left-1/2  -translate-x-1/2 w-[68%]  max-w-none  z-0 pointer-events-none'
       />
+
+      <button
+        onClick={() => instanceRef.current?.prev()}
+        className='absolute left-10 border-1 border-gray-200 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white text-gray-600 text-xl rounded-full  hover:bg-gray-100'
+        aria-label='Previous slide'
+      >
+        ‹
+      </button>
+
+      <button
+        onClick={() => instanceRef.current?.next()}
+        className='absolute right-10 top-1/2 border-1  border-gray-200 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white text-gray-600 text-xl rounded-full  hover:bg-gray-100'
+        aria-label='Next slide'
+      >
+        ›
+      </button>
 
       <div
         ref={sliderRef}
@@ -64,7 +54,7 @@ const TestimonialCarousel = () => {
         {dummyTestimonials.map((testimonial, index) => (
           <div
             key={index}
-            className='keen-slider__slide bg-gray-300 border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col justify-between max-w-md'
+            className='keen-slider__slide bg-[#fbfbfb]  border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col justify-between max-w-md'
           >
             {/* Header */}
             <div className='flex items-start justify-between bg-white px-6 py-8'>
@@ -92,7 +82,7 @@ const TestimonialCarousel = () => {
             </div>
 
             {/* Quote */}
-            <p className='text-gray-700 text-lg font-light leading-relaxed px-16 py-8'>
+            <p className='text-gray-700 text-lg font-light leading-relaxed px-16 py-16'>
               {testimonial.quote}
             </p>
 
