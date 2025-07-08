@@ -12,7 +12,7 @@ const StickyBottomBar = () => {
     .toISOString()
     .slice(0, 10);
   return (
-    <div className='fixed bottom-0 left-0 w-full bg-white z-50'>
+    <div className='fixed hidden md:block bottom-0 left-0 w-full bg-white z-50 '>
       <div className='max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center gap-6'>
         {/* Content */}
         <div className='flex flex-wrap gap-6 text-sm text-gray-800'>
