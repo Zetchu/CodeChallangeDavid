@@ -1,4 +1,3 @@
-import React from 'react';
 import { useScholarshipStore } from '../state/scholarshipStore';
 
 function AboutCards() {
