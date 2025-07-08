@@ -27,10 +27,13 @@ export interface ScholarshipData {
   about: DescriptionBlock[];
   tuition: number;
   total_value: number;
+  remaining: number;
   stipend_per_month: number;
   stipend_per_year: number;
   study_commitment_text: string;
+  study_commitment: number;
   internship_commitment_text: string;
+  internship_commitment: number;
   what_you_will_learn: WhatYouWillLearnItem[];
   internship_description: DescriptionBlock[];
   internship_expectation: {
