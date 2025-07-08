@@ -20,7 +20,23 @@ export interface FAQItem {
   answer: DescriptionBlock[];
 }
 
+type Company = {
+  id: number;
+  scope: string;
+  name: string;
+  type: string;
+  color: string;
+  website: string | null;
+  rank: number;
+  description: {
+    type: string;
+    data: string;
+  };
+};
+
 export interface ScholarshipData {
+  duration: number;
+  company: Company;
   about_description: string;
   name: string;
   description: DescriptionBlock[];
