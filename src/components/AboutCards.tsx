@@ -15,7 +15,7 @@ function AboutCards() {
           </p>
           <hr className='hidden md:flex my-4 border-gray-300' />
           <div className='text-sm text-gray-700 mt-2  md:mx-8 space-y-3'>
-            <div className='flex justify-between  gap-6 flex-wrap'>
+            <div className='flex justify-between text-lg  gap-6 flex-wrap'>
               <div>
                 <p className='font-medium text-[#685DC5]'>Tuition covered</p>
                 <p>€{data?.tuition}</p>
@@ -25,7 +25,7 @@ function AboutCards() {
                 <p>€{data?.remaining}</p>
               </div>
             </div>
-            <div>
+            <div className='text-lg'>
               <p className='font-medium mt-10 text-[#685DC5]'>Living stipend</p>
               <p>€8,400 (€700/month)</p>
             </div>

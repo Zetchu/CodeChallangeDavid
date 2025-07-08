@@ -84,7 +84,7 @@ const FAQSection = () => {
                     onClick={() => toggle(index)}
                     className='w-full text-left text-base  text-gray-900 flex justify-between items-center'
                   >
-                    <span>{faq.question}</span>
+                    <span className='w-[60%]'>{faq.question}</span>
                     <span
                       className={`w-8 h-8 flex items-center justify-center rounded-full border text-sm ml-4 ${
                         isOpen
