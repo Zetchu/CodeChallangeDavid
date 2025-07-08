@@ -10,7 +10,7 @@ const TestimonialCarousel = () => {
     loop: true,
     mode: 'free-snap',
     slides: {
-      perView: 1.2,
+      perView: 1,
       spacing: 16,
     },
     breakpoints: {
@@ -28,24 +28,8 @@ const TestimonialCarousel = () => {
       <img
         src={gridBg}
         alt='Grid Background'
-        className='absolute top-0 left-1/2  -translate-x-1/2 w-[68%]  max-w-none  z-0 pointer-events-none'
+        className='absolute top-0 left-1/2  -translate-x-1/2 w-[100%] md:w-[68%]  max-w-none  z-0 pointer-events-none'
       />
-
-      <button
-        onClick={() => instanceRef.current?.prev()}
-        className='absolute left-10 border-1 border-gray-200 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white text-gray-600 text-xl rounded-full  hover:bg-gray-100'
-        aria-label='Previous slide'
-      >
-        ‹
-      </button>
-
-      <button
-        onClick={() => instanceRef.current?.next()}
-        className='absolute right-10 top-1/2 border-1  border-gray-200 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white text-gray-600 text-xl rounded-full  hover:bg-gray-100'
-        aria-label='Next slide'
-      >
-        ›
-      </button>
 
       <div
         ref={sliderRef}
@@ -92,6 +76,24 @@ const TestimonialCarousel = () => {
             </p>
           </div>
         ))}
+      </div>
+      {/* Navigation Buttons */}
+      <div className='flex justify-end gap-4 mt-6  lg:mt-0 lg:block'>
+        <button
+          onClick={() => instanceRef.current?.prev()}
+          className='lg:absolute lg:left-10 lg:top-1/2 lg:-translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white text-gray-600 text-xl rounded-full border border-gray-200 hover:bg-gray-100'
+          aria-label='Previous slide'
+        >
+          ‹
+        </button>
+
+        <button
+          onClick={() => instanceRef.current?.next()}
+          className='lg:absolute lg:right-10 lg:top-1/2 lg:-translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white text-gray-600 text-xl rounded-full border border-gray-200 hover:bg-gray-100'
+          aria-label='Next slide'
+        >
+          ›
+        </button>
       </div>
     </section>
   );
