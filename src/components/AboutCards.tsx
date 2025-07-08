@@ -4,18 +4,17 @@ function AboutCards() {
   const { data } = useScholarshipStore();
   return (
     <section className='px-6 py-10 lg:px-36'>
-      <div className='grid md:grid-cols-3 gap-6'>
-        {/* Card 1 - spans 2 rows */}
-        <div className='border border-gray-300 p-6 rounded-md row-span-3'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        {/* Card 1  */}
+        <div className='md:border md:border-gray-300 p-6 rounded-md md:row-span-3'>
           <p className='text-sm font-semibold text-[#685DC5]'>
-            Scholarship value
+            Fellowship value
           </p>
-          <p className='text-3xl font-light mt-2 mb-46.5'>
+          <p className='text-3xl font-light mt-2 mb-10 md:mb-46.5'>
             €{data?.total_value}
           </p>
-          <hr className='my-4 border-gray-300' />
-          <div className='text-sm text-gray-700 mt-2  mx-8 space-y-3'>
-            {/* Tuition + Remaining row */}
+          <hr className='hidden md:flex my-4 border-gray-300' />
+          <div className='text-sm text-gray-700 mt-2  md:mx-8 space-y-3'>
             <div className='flex justify-between  gap-6 flex-wrap'>
               <div>
                 <p className='font-medium text-[#685DC5]'>Tuition covered</p>
@@ -34,7 +33,7 @@ function AboutCards() {
         </div>
 
         {/* Card 2 */}
-        <div className='border border-gray-300 p-6 rounded-md'>
+        <div className='border border-gray-300 p-6 rounded-md col-span-3 md:col-span-1 '>
           <p className='text-sm font-semibold text-[#685DC5]'>
             Study commitment
           </p>
@@ -46,7 +45,7 @@ function AboutCards() {
         </div>
 
         {/* Card 3 */}
-        <div className='border border-gray-300 p-6 rounded-md'>
+        <div className='border border-gray-300 p-6 rounded-md col-span-3 md:col-span-1'>
           <p className='text-sm font-semibold text-[#685DC5]'>
             Work commitment
           </p>
@@ -68,15 +67,18 @@ function AboutCards() {
           </div>
         </div>
 
-        {/* Card 4 - Full-time contract */}
+        {/* Card 4 */}
         <div className='border border-gray-300 p-6 rounded-md col-span-3 md:col-start-2'>
           <p className='text-sm font-semibold text-[#685DC5]'>
             A full-time contract
           </p>
-          <p className='text-lg font-light mt-2'>1 Year / Full-Time</p>
+          <p className='text-lg font-light mt-2'>
+            {data?.duration} Year / Full-Time
+          </p>
           <hr className='my-4 w-6 border-gray-300' />
           <p className='text-sm text-gray-700'>
-            You’ll be guaranteed a 1 year contract with SCG upon graduation.
+            You’ll be guaranteed a {data?.duration} year contract with SCG upon
+            graduation.
           </p>
         </div>
       </div>

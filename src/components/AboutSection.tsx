@@ -11,17 +11,16 @@ const AboutSection = () => {
     <section className='bg-white px-6 py-20 lg:px-36 flex flex-col lg:flex-row items-center gap-10'>
       {/* Circular Image */}
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 items-center'>
-        {/* Image with background SVG */}
         <div className='relative flex justify-center items-center w-full'>
           {/* Background SVG behind */}
           <img
             src={aboutBackground}
             alt='Background pattern'
-            className='absolute w-[70%] h-auto z-0 object-contain'
+            className='absolute w-[65%] h-auto z-0 object-contain'
           />
 
           {/* Circular Image */}
-          <div className='w-[90%] max-w-[300px] aspect-square rounded-full overflow-hidden border-4 border-gray-200 z-10'>
+          <div className='w-[60%] aspect-square rounded-full overflow-hidden border-4 border-gray-200 z-10'>
             <img
               src={aboutImage}
               alt='About visual'
@@ -31,11 +30,11 @@ const AboutSection = () => {
         </div>
 
         {/* Text Content */}
-        <div className='flex-1 text-center lg:text-left mt-8'>
-          <h2 className='text-3xl font-semibold text-[#685DC5] mb-4'>
+        <div className='flex-1 text-center  lg:text-left mt-8'>
+          <h2 className='text-[45px] lg:w-[50%]  text-[#685DC5] mb-4'>
             About the apprenticeship
           </h2>
-          <p className='text-gray-700 leading-relaxed max-w-xl mx-auto lg:mx-0'>
+          <p className='text-gray-700 font-light text-xl leading-relaxed max-w-xl mx-auto lg:mx-0'>
             {data.about[0].data}
           </p>
         </div>
