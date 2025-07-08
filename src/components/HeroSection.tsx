@@ -73,7 +73,7 @@ const HeroSection = () => {
             />
             <div className='flex-col'>
               <p className='text-gray-500 text-s'>Powered by:</p>
-              <p className='font-light text-2xl'>Zeptolab</p>
+              <p className='font-light text-2xl'>{data.company.name}</p>
             </div>
           </div>
 
@@ -82,7 +82,9 @@ const HeroSection = () => {
             <p className='text-sm text-[#5C3CAF] font-semibold mb-2'>
               Application closes in
             </p>
-            <CountdownTimer deadline={data.application_end_date} />
+            <div className='text-2xl'>
+              <CountdownTimer deadline={data.application_end_date} />
+            </div>
           </div>
 
           {/* Location and date info */}

@@ -19,7 +19,7 @@ const CountdownTimer = ({ deadline }: { deadline: string }) => {
   }, [deadline]);
 
   return (
-    <p className='text-2xl text-gray-700 font-light tracking-wide'>
+    <p className=' text-gray-700 font-light tracking-wide'>
       {timeLeft.days} Day : {timeLeft.hours} Hrs : {timeLeft.minutes} Min :{' '}
       {timeLeft.seconds} Sec
     </p>
