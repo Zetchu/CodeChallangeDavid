@@ -2,6 +2,7 @@ import AboutCards from './components/AboutCards';
 import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
+import TestimonialCarousel from './components/TestimonialCarousel';
 import { useScholarshipStore } from './state/scholarshipStore';
 import { useEffect } from 'react';
 
@@ -18,6 +19,7 @@ function App() {
       <HeroSection />
       <AboutSection />
       <AboutCards />
+      <TestimonialCarousel />
     </>
   );
 }
