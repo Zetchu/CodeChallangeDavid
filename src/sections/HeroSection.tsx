@@ -1,8 +1,8 @@
-import CountdownTimer from './CountdownTimer';
 import { useScholarshipStore } from '../state/scholarshipStore';
 import heroImage from '../assets/heroImage1.png';
 import heroImage2 from '../assets/heroGird.svg';
 import zeptoLogo from '../assets/logo.svg';
+import CountdownTimer from '../components/CountdownTimer';
 
 const HeroSection = () => {
   const { data } = useScholarshipStore();

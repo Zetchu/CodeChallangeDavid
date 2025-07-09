@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# Code Challenge – David
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive single-page web application built with **React**, **Zustand**, **Tailwind CSS**, and **Framer Motion**. The site is designed based on the UI design provided in the challenge brief.
 
-Currently, two official plugins are available:
+### 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [code-challange-david.vercel.app](https://code-challange-david.vercel.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧰 Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19**
+- **TypeScript** (I hope its not a problem I used TypeScript)
+- **Tailwind CSS**
+- **Framer Motion** (for smooth animations)
+- **Zustand** (global state management)
+- **Axios** (HTTP client)
+- **Vitest** (unit testing framework)
+- **Vite** (build and development tool)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/CodeChallangeDavid.git
+cd CodeChallangeDavid
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+---
+
+## 🧪 Running Unit Tests
+
+This project uses **Vitest** for testing both the API service and the Zustand store logic.
+
+Run all tests:
+
+```bash
+npx vitest
+```
+
+Or run with the UI for live feedback:
+
+```bash
+npx vitest --ui
+```
+
+Included test coverage:
+
+- ✅ `fetchScholarshipData` (API service)
+- ✅ `useScholarshipStore` (Zustand state logic)
+
+---
+
+## 🔗 Deployment
+
+Deployed on **Vercel**  
+Build command: `npm run build`  
+Output directory: `dist/`
+
+---
+
+## 📄 Notes
+
+- UI implementation is based on the provided design mockups.
+- Some data like **testimonials** was not available in the API, so static dummy data was used instead.
+- The **countdown timer** shows negative values because the API returns a scholarship start date in the past (2020).
+- Tested and confirmed working on latest Chrome and Safari.

@@ -1,11 +1,9 @@
-import AboutCards from './components/AboutCards';
-import AboutSection from './components/AboutSection';
-import StickyBottomBar from './components/BottomBar';
-import CustomCursor from './components/CustomCursor';
-import FAQSection from './components/FaqSection';
-import HeroSection from './components/HeroSection';
-import Navbar from './components/Navbar';
-import TestimonialCarousel from './components/TestimonialCarousel';
+import AboutCards from './sections/AboutCards';
+import AboutSection from './sections/AboutSection';
+import { BottomBar, Navbar, CustomCursor } from './components';
+import FAQSection from './sections/FaqSection';
+import HeroSection from './sections/HeroSection';
+import TestimonialCarousel from './sections/TestimonialCarousel';
 import { useScholarshipStore } from './state/scholarshipStore';
 import { useEffect } from 'react';
 
@@ -24,7 +22,7 @@ function App() {
       <AboutCards />
       <TestimonialCarousel />
       <FAQSection />
-      <StickyBottomBar />
+      <BottomBar />
       <CustomCursor />
     </>
   );
