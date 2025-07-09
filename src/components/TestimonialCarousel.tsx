@@ -4,6 +4,7 @@ import gridBg from '../assets/gridBackground.svg';
 
 import linkedInLogo from '../assets/linkedInLogo.svg';
 import { dummyTestimonials } from '../constants/dummyTestimonials';
+import { useCursorStore } from '../state/cursorStore';
 
 const TestimonialCarousel = () => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -24,7 +25,19 @@ const TestimonialCarousel = () => {
   });
 
   return (
-    <section className='relative bg-white px-6 py-20 mt-30  overflow-hidden'>
+    <section
+      className='relative bg-white px-6 py-20 mt-30  overflow-hidden cursor-none'
+      onMouseEnter={() => {
+        console.log('Mouse entered!');
+        useCursorStore.getState().setActive(true);
+        useCursorStore.getState().setText('Drag');
+      }}
+      onMouseLeave={() => {
+        console.log('Mouse L!');
+        useCursorStore.getState().setActive(false);
+        useCursorStore.getState().setText('');
+      }}
+    >
       <img
         src={gridBg}
         alt='Grid Background'
@@ -65,12 +78,10 @@ const TestimonialCarousel = () => {
               />
             </div>
 
-            {/* Quote */}
             <p className='text-gray-700 text-lg font-light leading-relaxed px-16 py-16'>
               {testimonial.quote}
             </p>
 
-            {/* Education */}
             <p className='text-xs text-gray-500 px-16 pb-10 '>
               Education &nbsp;&bull;&nbsp; {testimonial.education}
             </p>

@@ -1,6 +1,7 @@
 import AboutCards from './components/AboutCards';
 import AboutSection from './components/AboutSection';
 import StickyBottomBar from './components/BottomBar';
+import CustomCursor from './components/CustomCursor';
 import FAQSection from './components/FaqSection';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
@@ -24,6 +25,7 @@ function App() {
       <TestimonialCarousel />
       <FAQSection />
       <StickyBottomBar />
+      <CustomCursor />
     </>
   );
 }
