@@ -10,7 +10,7 @@ function AboutCards() {
           <p className='text-sm font-semibold text-[#685DC5]'>
             Fellowship value
           </p>
-          <p className='text-3xl font-light mt-2 mb-10 md:mb-46.5'>
+          <p className='text-3xl font-light mt-2 mb-10 md:mb-41'>
             €{data?.total_value}
           </p>
           <hr className='hidden md:flex my-4 border-gray-300' />
