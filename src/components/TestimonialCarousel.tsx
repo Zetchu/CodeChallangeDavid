@@ -26,7 +26,7 @@ const TestimonialCarousel = () => {
 
   return (
     <section
-      className='relative bg-white px-6 py-20 mt-30  overflow-hidden cursor-none'
+      className='relative bg-white px-6 py-20 mt-30 lg:mb-4  overflow-hidden cursor-none'
       onMouseEnter={() => {
         useCursorStore.getState().setActive(true);
         useCursorStore.getState().setText('Drag');
@@ -61,10 +61,9 @@ const TestimonialCarousel = () => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
-                    delay: 0.4 * index,
+                    duration: 0.4,
+                    ease: 'easeOut',
+                    delay: 0.2 * index,
                   }}
                 />
                 <div>
