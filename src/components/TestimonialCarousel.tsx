@@ -2,7 +2,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import gridBg from '../assets/gridBackground.svg';
 import { motion } from 'framer-motion';
-import linkedInLogo from '../assets/linkedInLogo.svg';
+import linkedInLogo from '../assets/linkedInlogo.svg';
 import { dummyTestimonials } from '../constants/dummyTestimonials';
 import { useCursorStore } from '../state/cursorStore';
 
