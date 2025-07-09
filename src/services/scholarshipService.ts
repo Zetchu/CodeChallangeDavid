@@ -8,5 +8,5 @@ export const fetchScholarshipData = async (): Promise<{
     'https://pre-prod.harbour.space/api/v1/scholarship_pages/data-science-apprenticeship-zeptolab'
   );
 
-  return res.data();
+  return res.data;
 };
