@@ -1,9 +1,10 @@
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import gridBg from '../assets/gridBackground.svg';
-
+import { motion } from 'framer-motion';
 import linkedInLogo from '../assets/linkedInLogo.svg';
 import { dummyTestimonials } from '../constants/dummyTestimonials';
+import { useCursorStore } from '../state/cursorStore';
 
 const TestimonialCarousel = () => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -24,7 +25,17 @@ const TestimonialCarousel = () => {
   });
 
   return (
-    <section className='relative bg-white px-6 py-20 mt-30  overflow-hidden'>
+    <section
+      className='relative bg-white px-6 py-20 mt-30 lg:mb-4  overflow-hidden cursor-none'
+      onMouseEnter={() => {
+        useCursorStore.getState().setActive(true);
+        useCursorStore.getState().setText('Drag');
+      }}
+      onMouseLeave={() => {
+        useCursorStore.getState().setActive(false);
+        useCursorStore.getState().setText('');
+      }}
+    >
       <img
         src={gridBg}
         alt='Grid Background'
@@ -43,10 +54,17 @@ const TestimonialCarousel = () => {
             {/* Header */}
             <div className='flex items-start justify-between bg-white px-6 py-8'>
               <div className='flex items-center gap-3'>
-                <img
+                <motion.img
                   src={testimonial.image}
                   alt={testimonial.name}
                   className='w-12 h-12 rounded-full object-cover'
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: 'easeOut',
+                    delay: 0.2 * index,
+                  }}
                 />
                 <div>
                   <p className='text-sm font-medium text-gray-800'>
@@ -65,12 +83,10 @@ const TestimonialCarousel = () => {
               />
             </div>
 
-            {/* Quote */}
             <p className='text-gray-700 text-lg font-light leading-relaxed px-16 py-16'>
               {testimonial.quote}
             </p>
 
-            {/* Education */}
             <p className='text-xs text-gray-500 px-16 pb-10 '>
               Education &nbsp;&bull;&nbsp; {testimonial.education}
             </p>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useScholarshipStore } from '../state/scholarshipStore';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -96,18 +97,21 @@ const FAQSection = () => {
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div className='mt-3 text-gray-600 text-sm space-y-2'>
-                      {faq.answer.map((para, i) => (
-                        <p
-                          className='w-[80%]'
-                          key={i}
-                        >
-                          {para.data}
-                        </p>
-                      ))}
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className='overflow-hidden mt-3 text-gray-600 text-sm space-y-2 px-1'
+                      >
+                        {faq.answer.map((para, i) => (
+                          <p key={i}>{para.data}</p>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
