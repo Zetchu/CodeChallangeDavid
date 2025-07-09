@@ -26,7 +26,7 @@ const TestimonialCarousel = () => {
 
   return (
     <section
-      className='relative bg-white px-6 py-20 mt-30 lg:mb-4  overflow-hidden cursor-none'
+      className='relative bg-white px-6 py-20 mt-30 mb-4 lg:mb-4  overflow-hidden cursor-none'
       onMouseEnter={() => {
         useCursorStore.getState().setActive(true);
         useCursorStore.getState().setText('Drag');
