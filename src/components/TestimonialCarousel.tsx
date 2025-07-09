@@ -1,7 +1,7 @@
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import gridBg from '../assets/gridBackground.svg';
-
+import { motion } from 'framer-motion';
 import linkedInLogo from '../assets/linkedInLogo.svg';
 import { dummyTestimonials } from '../constants/dummyTestimonials';
 import { useCursorStore } from '../state/cursorStore';
@@ -28,12 +28,10 @@ const TestimonialCarousel = () => {
     <section
       className='relative bg-white px-6 py-20 mt-30  overflow-hidden cursor-none'
       onMouseEnter={() => {
-        console.log('Mouse entered!');
         useCursorStore.getState().setActive(true);
         useCursorStore.getState().setText('Drag');
       }}
       onMouseLeave={() => {
-        console.log('Mouse L!');
         useCursorStore.getState().setActive(false);
         useCursorStore.getState().setText('');
       }}
@@ -56,10 +54,18 @@ const TestimonialCarousel = () => {
             {/* Header */}
             <div className='flex items-start justify-between bg-white px-6 py-8'>
               <div className='flex items-center gap-3'>
-                <img
+                <motion.img
                   src={testimonial.image}
                   alt={testimonial.name}
                   className='w-12 h-12 rounded-full object-cover'
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 20,
+                    delay: 0.4 * index,
+                  }}
                 />
                 <div>
                   <p className='text-sm font-medium text-gray-800'>
